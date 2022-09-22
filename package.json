@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ALVIN-OBONYO/Xela-smart_insuarance#readme",
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "web3": "^1.8.0"
   }
 }
