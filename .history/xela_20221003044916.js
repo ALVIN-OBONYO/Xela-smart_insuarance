@@ -1,4 +1,4 @@
-const { SHA256 } = import ('crypto-js');
+const { createSHA256 } = import ('crypto-js');
 
 class Block{
     constructor (index, timestamp, data, previousHash = '') { /*index tells us where the block sits on the chain, timestamp when the block was created, data is whatever data you want to include, previousHash contains the string of previous block.It ensures the integrity of the blockchain. */
@@ -10,7 +10,7 @@ class Block{
     }
 
     calculateHash(){ /* calculates the Hash function and identify the block on the blockchain */
-    return SHA256 (this.index + this.timestamp +this.previousHash + JSON.stringify (this.data)).toString();
+    return SHA256 (this.index + this.timestamp + JSON.stringify (this.data)).toString();
     }
 }
 
