@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -10,7 +9,7 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import  IconButton  from '@mui/material/IconButton'
-
+import { customerTransaction } from '../Services/transactions'
 const planValues = [
     {id: 1, text: "Bodily injury liability coverage"},
     {id: 2, text: "Collision Coverage"},
@@ -32,6 +31,23 @@ const deluxe = [
     
 ]
 const PlanCard = () => {
+    const Basic = () => {
+       localStorage.setItem('planName', 'Basic') 
+       localStorage.setItem('planBenefits', JSON.stringify(planValues))
+    //    customerTransaction()
+    }
+
+    const Premium = () => {
+        localStorage.setItem('planName', 'Premium')
+        localStorage.setItem('planBenefits', JSON.stringify(premium))
+        // customerTransaction()
+    }
+
+    const Deluxe = () => {
+       localStorage.setItem('planName', 'Deluxe') 
+       localStorage.setItem('planBenefits', JSON.stringify(deluxe))
+    //    customerTransaction()
+    }
     return (
         <Box sx={{ display: "flex", mx: "1.2em", flexDirection: "row", flexWrap: "wrap", gap: "0.9em"}}>
         <Card sx={{background: 'linear-gradient(to right, #141e30, #243b55)', color: 'white'}}>
@@ -50,7 +66,7 @@ const PlanCard = () => {
                 </ListItem>
                 ))}
             </List>
-            <Button>Buy Now</Button>
+            <Button onClick={Basic}>Buy Now</Button>
         </CardContent>
         </Card>
         <Card sx={{background: "linear-gradient(to right, #DECBA4, #3E5151)"}}>
@@ -69,7 +85,7 @@ const PlanCard = () => {
                 </ListItem>
                 ))}
             </List>
-            <Button>Buy Now</Button>
+            <Button onClick={Premium}>Buy Now</Button>
         </CardContent>
         </Card>
         <Card sx={{background: "linear-gradient(to right, #434343 0%, black 100%)", color: "white"}}>
@@ -88,7 +104,7 @@ const PlanCard = () => {
                 </ListItem>
                 ))}
             </List>
-            <Button>Buy Now</Button>
+            <Button onClick={Deluxe}>Buy Now</Button>
         </CardContent>
         </Card>
         </Box>

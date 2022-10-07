@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, MemoryRouter} from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import EntryPage from '../Pages/Entrypage'
 import PolicyMaker from '../Pages/Policies'
 import ReportForm from '../Pages/ReportForm'
-import Report from '../Pages/Report'
+// import Report from '../Pages/Report'
 import ReportInfo from '../Pages/ReportInfo'
-import FormPagination from './FormPagination'
+
 
 const RoutePages = () => {
     return (

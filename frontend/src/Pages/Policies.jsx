@@ -1,14 +1,12 @@
-import { useState} from 'react'
-import {  Card, CardActions, CardContent, Typography, Box } from '@mui/material'
-import { truncateAddress } from '../Services/TruncateAddress'
-import { getContractSymbol } from '../Services/Contract';
+import { useState, useEffect} from 'react'
+import {  Card, CardActions, Typography, Box } from '@mui/material'
+import { GetContractSymbol } from '../Services/Contract';
 import Sidebar from "../Components/Sidebar"
+
+
 const PolicyMaker = () => {
-    const [myDash, setMyDash] = useState(false)
-    const [ status, setStatus] = useState("")
-    const [message, setMessage] = useState("")
- 
-    console.log(getContractSymbol())
+     
+    console.log(GetContractSymbol())
 
     // function smartContractListener() {
     //     getContractSymbol.events.account({}, (err, data) => {
@@ -19,21 +17,33 @@ const PolicyMaker = () => {
     //         }
     //     })
     // } 
+    const [policy, setPolicy] = useState([])
+
+    useEffect(() => {
+      setPolicy(JSON.parse(localStorage.getItem('planBenefits')))
+    
+      
+    }, [])
+    
     return (
         <>
        <Sidebar />
         
        <Typography sx={{fontSize: "1.4rem" }}>Dashboard</Typography>
-       <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "2.2rem"}}>
+       
+       <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "2.2rem", flexWrap: "wrap"}}>
+       <Card sx={{width: "90vw"}}>
+       <Typography>{window.userAddress}</Typography>
+       </Card>
       <Card sx={{width: "90vw"}}>
         <CardActions>
             <Typography>Current Insurance Plan</Typography>
         </CardActions>
         <CardActions>
-            <Typography>Basic</Typography>
+            <Typography>{localStorage.getItem('planName')}</Typography>
         </CardActions>
         <CardActions>
-            <Typography>Balance for current billing month </Typography>
+            <Typography>Balance for current billing month: 0 </Typography>
         </CardActions>
       </Card>
       <Card sx={{width: "90vw"}}>
@@ -51,12 +61,16 @@ const PolicyMaker = () => {
         <CardActions>
             <Typography>Benefits</Typography>
         </CardActions>
-        <CardActions>
-            <Typography>Lorem, ipsum dolor.</Typography>
+        <CardActions sx={{display: "flex", flexDirection: "column", textAlign: "justify"}}>
+            {policy && policy.map((elem) => {
+                const { text} = elem
+                return (
+                    <Typography >{text}</Typography>
+                )
+            }) }
+           
         </CardActions>
-        <CardActions>
-            <Typography>Lorem, ipsum dolor.</Typography>
-        </CardActions>
+        
         <button>Change Plan</button>
       </Card>
       </Box>

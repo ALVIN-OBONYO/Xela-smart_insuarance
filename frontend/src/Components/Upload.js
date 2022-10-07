@@ -1,13 +1,13 @@
 import { FaPlus} from 'react-icons/fa'
 import React, {useState, useRef} from 'react'
-
-import {CardActions, Card, Box, CardContent, Button, Typography } from '@mui/material'
+import { uuid} from 'uuidv4'
+import {CardActions, Card, Box, Button } from '@mui/material'
 
 import { BsFillCameraFill} from 'react-icons/bs'
 
 import './Upload.css'
 const UploadPhotos = () => {
-    const [photoCard, setPhotoCard] = useState([])
+    
     const [counter, setCounter] = useState(0)
     const imageRef = useRef(null)
 
@@ -25,7 +25,7 @@ const UploadPhotos = () => {
             <>
             {rowList && rowList.map((e)=> {
                 return (
-                    <div className="ImageContainer">
+                    <div className="ImageContainer" key={uuid()}>
 
                        <img src="" className="Image" alt='' ref={imageRef} />
                        <label htmlFor='inputFile'>

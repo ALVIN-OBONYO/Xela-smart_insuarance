@@ -4,7 +4,7 @@ import { FaTimes, FaBars, FaInstagram, FaTwitter, FaFacebook, } from 'react-icon
 import { Link} from 'react-router-dom'
 import { truncateAddress } from '../Services/TruncateAddress'
 import Web3 from 'web3'
-import { getContractSymbol } from '../Services/Contract'
+import { GetContractSymbol } from '../Services/Contract'
 import TextField from '@mui/material/TextField'
 import Button from "@mui/material/Button"
 import PlanCard from "../Components/Cards"
@@ -15,7 +15,6 @@ import { useNavigate} from 'react-router-dom'
 
 const Entrypage = () => {
         const [navButton, setNavButton] = useState(true)
-        const [policy, setPolicy] = useState("")
         const switchNavState = () => setNavButton(!navButton)
         const buttonLogout = useRef(null)
         const yourAddress = useRef()
@@ -32,7 +31,7 @@ const Entrypage = () => {
                 alert("No ETH browser extension detected.")
             }
         }
-         console.log(getContractSymbol())
+         console.log(GetContractSymbol())
         async function LoginWithEth() {
     
             if (window.web3) {
@@ -62,12 +61,14 @@ const Entrypage = () => {
         
         function showAddress() {
           if (!window.userAddress) {
-            buttonLogin.current.classList.add("btnlog")
+            
+            buttonLogin.current.classList.add("hidden")
             yourAddress.current.innerText = ""
             buttonLogout.current.classList.add("hidden") 
              return false
         }
-        buttonLogin.current.classList.remove("btnlog")
+        
+        buttonLogin.current.classList.remove("hidden")
         yourAddress.current.innerText = `ETH Address: ${truncateAddress(window.userAddress)}`
         buttonLogout.current.classList.remove("hidden")
     } 
@@ -118,7 +119,9 @@ const Entrypage = () => {
             <h4>Resources</h4>
         </div>
         </nav>
+        
         <section className="top-descr" id='top'>
+            
             <h1 id="top-h3">Car Insurance On Blockchain</h1>
             <p id="top-pg">Choose our insurance company that is sure to uphoald the contract through our blockchain smart contracts.</p>
             <div id="policy-sec">
@@ -126,18 +129,23 @@ const Entrypage = () => {
             
             <Button variant="outlined" onClick={LoginWithEth}>Save ETH Address
                 </Button>
-                <Button variant="outlined" onClick={login} ref={buttonLogin}>Login
+                <Button variant="outlined" onClick={login} ref={buttonLogin} className="hidden" sx={{display: window.userAddress ? "none" : "block"}}>Login
                 </Button>
+                {error && <p>{error}</p>}
                 <p id="userAddress" className="text-gray-600" ref={yourAddress}></p>
-                <button id="logoutButton" onClick={logout} className="hidden text-blue-500 underline" ref={buttonLogout}>Logout</button>
+                <Button id="logoutButton" onClick={logout} className="hidden" sx={{display: window.userAddress ? "none" : "block"}} ref={buttonLogout}>Logout</Button>
                            </div>
         </section>
+        
         </header>
+        
         <div className='about-descr' id="descr">
+            
             <h2>What We Offer</h2>
             <p>
             Our Motor insurance cover protects the insured against financial loss in the event that the motor vehicle is involved in an accident, burnt or stolen. We use blockchain technology to ensure there is trust with our customers.</p>
             </div>
+            
      <React.Fragment> 
               <p>                         
 <b>Our Pricing Plans</b> 

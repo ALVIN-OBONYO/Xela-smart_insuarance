@@ -3,10 +3,9 @@ import WalletIcon from '@mui/icons-material/Wallet';
 import ReportIcon from '@mui/icons-material/Report';
 import { List, ListItemIcon, Box, Tooltip, ListItem, ListItemButton } from '@mui/material'
 import CommentBankIcon from '@mui/icons-material/CommentBank';
-import { useEffect } from 'react';
 import { useNavigate} from 'react-router-dom'
 import { getAddress} from '../Services/LoginWithEth';
-import { ReportButton } from './Navigate'
+
 const Sidebar = () => {
     const navigate = useNavigate()
     return (
@@ -16,7 +15,7 @@ const Sidebar = () => {
                 <ListItem disablePadding>
                     <ListItemButton>
                     <ListItemIcon sx={{width: "2em", height: "2em"}}>
-                       <AddHomeWorkIcon sx={{fontSize: "2em"}}/>
+                       <AddHomeWorkIcon color="primary" sx={{fontSize: "2em"}}/>
                     </ListItemIcon>
                     </ListItemButton>
                 </ListItem>
@@ -25,7 +24,7 @@ const Sidebar = () => {
                 <ListItem disablePadding>
                     <ListItemButton disablePadding onClick={getAddress}>   
                     <ListItemIcon sx={{width: "2em", height: "2em"}} >
-                       <WalletIcon sx={{fontSize: "2em"}} />
+                       <WalletIcon color="primary" sx={{fontSize: "2em"}} />
                     </ListItemIcon>
                     </ListItemButton>
                 </ListItem>      
@@ -37,7 +36,7 @@ const Sidebar = () => {
                    
                     }>   
                     <ListItemIcon sx={{width: "2em", height: "2em"}}>
-                       <ReportIcon sx={{fontSize: "2em"}}/>
+                       <ReportIcon color="primary" sx={{fontSize: "2em"}} />
                     </ListItemIcon>
                     </ListItemButton>
                 </ListItem>    
@@ -46,7 +45,7 @@ const Sidebar = () => {
                 <ListItem disablePadding>
                     <ListItemButton >     
                     <ListItemIcon sx={{width: "2em", height: "2em"}}>
-                       <CommentBankIcon sx={{fontSize: "2em"}}/>
+                       <CommentBankIcon color="primary" sx={{fontSize: "2em"}}/>
                      </ListItemIcon>
                      </ListItemButton>
                 </ListItem>     

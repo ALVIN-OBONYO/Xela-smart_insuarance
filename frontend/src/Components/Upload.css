@@ -1,8 +1,7 @@
 .ImageContainer {
     width: 15em;
         height: 15em;
-        background-color: #313131f3;
-        
+        background-color: #313131f3;     
         
         display: flex;
         flex-direction: column;

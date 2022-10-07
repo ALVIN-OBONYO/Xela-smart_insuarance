@@ -1,6 +1,5 @@
 import Calendar from 'react-calendar'
 import React, {useState} from 'react'
-import {RiCalendarLine} from 'react-icons/ri'
 import './Calendar.css'
 
 const MyCalendar = () => {
@@ -11,7 +10,7 @@ const MyCalendar = () => {
     }
     return (
         <div>
-           <h3>Time Of accident <RiCalendarLine /></h3>
+           <h3>Date Of Accident</h3><br/>
            <Calendar onChange={changeDate} value={calendarDate} />
            <h4>{calendarDate.toDateString()}</h4>
 
