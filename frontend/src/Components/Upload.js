@@ -1,6 +1,6 @@
 import { FaPlus} from 'react-icons/fa'
 import React, {useState, useRef} from 'react'
-import { uuid} from 'uuidv4'
+
 import {CardActions, Card, Box, Button } from '@mui/material'
 
 import { BsFillCameraFill} from 'react-icons/bs'
@@ -25,7 +25,7 @@ const UploadPhotos = () => {
             <>
             {rowList && rowList.map((e)=> {
                 return (
-                    <div className="ImageContainer" key={uuid()}>
+                    <div className="ImageContainer">
 
                        <img src="" className="Image" alt='' ref={imageRef} />
                        <label htmlFor='inputFile'>

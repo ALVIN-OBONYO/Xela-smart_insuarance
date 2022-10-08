@@ -34,19 +34,19 @@ const PlanCard = () => {
     const Basic = () => {
        localStorage.setItem('planName', 'Basic') 
        localStorage.setItem('planBenefits', JSON.stringify(planValues))
-    //    customerTransaction()
+       customerTransaction()
     }
 
     const Premium = () => {
         localStorage.setItem('planName', 'Premium')
         localStorage.setItem('planBenefits', JSON.stringify(premium))
-        // customerTransaction()
+        customerTransaction()
     }
 
     const Deluxe = () => {
        localStorage.setItem('planName', 'Deluxe') 
        localStorage.setItem('planBenefits', JSON.stringify(deluxe))
-    //    customerTransaction()
+       customerTransaction()
     }
     return (
         <Box sx={{ display: "flex", mx: "1.2em", flexDirection: "row", flexWrap: "wrap", gap: "0.9em"}}>

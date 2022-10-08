@@ -1,14 +1,19 @@
-import * as React from 'react'
+//import {useRef} from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField' 
 import MyCalendar from './Calendar.jsx'
 import Button from '@mui/material/Button'
 export default function VehicleForm () {
+  // const makeRef = useRef()
+  // const modelRef = useRef()
+  // const colorRef = useRef()
+  // const plateRef = useRef()
+  // const regRef = useRef()
     return (
         <Box
           component="form"
           sx={{
-            '& .MuiTextField-root': {m: 2, width: '40ch'}
+            '& .MuiTextField-root': {m: 2, width: '40ch', display: "flex", flexDirection: "column"}
           }}
           noValidate 
           autoComplete='off'
