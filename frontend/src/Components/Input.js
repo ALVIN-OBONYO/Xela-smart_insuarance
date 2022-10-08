@@ -14,7 +14,7 @@ export default function VehicleForm () {
           component="form"
           sx={{
             '& .MuiTextField-root': {m: 2, width: '40ch', display: "flex", flexDirection: "column"}
-          }}
+         }}
           noValidate 
           autoComplete='off'
            
