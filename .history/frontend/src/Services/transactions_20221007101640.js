@@ -1,0 +1,13 @@
+const CONTRACT_ADDRESS = "0x1A5b30a61CED9B4D9c209E7F1d2fbD38657f8EB1"
+const transactionParameters = {
+    from: window.userAddress,
+    to: CONTRACT_ADDRESS,
+    data: '' 
+}
+
+export async function customerTransaction()  {
+    const txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    }) 
+}
